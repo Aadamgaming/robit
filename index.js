@@ -407,6 +407,10 @@ app.post('/register', async (req, res) => {
     });
     
     res.json({ message: 'Verification email sent' });
+  } catch (emailError) {
+    console.error('Email error:', emailError);
+    res.status(500).json({ error: 'Failed to send verification email' });
+  }
   } catch (error) {
     console.error('Registration error:', error);
     res.status(500).json({ error: 'Registration failed' });
