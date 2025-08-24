@@ -47,7 +47,7 @@ const TEMP_CODE_EXPIRY = parseInt(process.env.TEMP_CODE_EXPIRY) || 5; // minutes
 const EMAIL_CODE_EXPIRY = parseInt(process.env.EMAIL_CODE_EXPIRY) || 10; // minutes
 
 // Configure nodemailer
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: process.env.EMAIL_SERVICE || 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
