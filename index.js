@@ -302,7 +302,7 @@ app.post('/register', async (req, res) => {
     });
   
   // Read and customize email template
-  const emailTemplate = \`<!doctype html>
+  const emailTemplate = `<!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8">
@@ -334,7 +334,7 @@ app.post('/register', async (req, res) => {
   </head>
   <body class="bg-body" style="background-color:#f6f9fc;">
     <div style="display:none;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;mso-hide:all;">
-      Your Robit verification code is \${verificationCode}.
+      Your Robit verification code is ${verificationCode}.
     </div>
 
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f6f9fc;">
@@ -364,8 +364,8 @@ app.post('/register', async (req, res) => {
 
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:24px;">
                   <tr>
-                    <td align="center" class="code-box" style="font-family: SFMono-Regular, Menlo, Consolas, \\"Liberation Mono\\", monospace; font-size:28px; letter-spacing:6px; color:#111827; padding:18px 12px; background:#f4f6f8; border:1px solid #e5e7eb; border-radius:10px;">
-                      \${verificationCode}
+                    <td align="center" class="code-box" style="font-family: SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; font-size:28px; letter-spacing:6px; color:#111827; padding:18px 12px; background:#f4f6f8; border:1px solid #e5e7eb; border-radius:10px;">
+                      ${verificationCode}
                     </td>
                   </tr>
                 </table>
@@ -395,7 +395,7 @@ app.post('/register', async (req, res) => {
       </tr>
     </table>
   </body>
-</html>\`;
+</html>`;
   
   // Send verification email
   try {
@@ -482,7 +482,7 @@ app.get('/verify/:email', (req, res) => {
     return res.status(404).send('Invalid verification link');
   }
   
-  res.send(\`
+  res.send(`
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -596,7 +596,7 @@ app.get('/verify/:email', (req, res) => {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            email: '\${email}',
+                            email: '${email}',
                             code: code
                         })
                     });
@@ -616,7 +616,7 @@ app.get('/verify/:email', (req, res) => {
         </script>
     </body>
     </html>
-  \`);
+  `);
 });
 
 app.listen(PORT, () => {
