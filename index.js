@@ -624,7 +624,7 @@ app.get('/verify/:email', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(\`Server running on http://localhost:\${PORT}\`);
+  console.log(`Server running on http://localhost:${PORT}`);
   console.log('Available endpoints:');
   console.log('POST /code - Generate temporary registration code');
   console.log('GET /:code - Registration page');
